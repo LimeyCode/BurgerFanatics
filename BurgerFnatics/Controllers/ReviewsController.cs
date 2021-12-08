@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BurgerFnatics.Data;
 using BurgerFnatics.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BurgerFnatics.Controllers
 {
@@ -46,6 +47,7 @@ namespace BurgerFnatics.Controllers
         }
 
         // GET: Reviews/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["RestaurantId"] = new SelectList(_context.Restaurant, "RestaurantName", "RestaurantName");
@@ -70,6 +72,7 @@ namespace BurgerFnatics.Controllers
         }
 
         // GET: Reviews/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -89,6 +92,7 @@ namespace BurgerFnatics.Controllers
         // POST: Reviews/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ReviewId,RestaurantId,Title,TasteRating,TextureRating,VisualRating,ImagePath")] Review review)
@@ -123,6 +127,7 @@ namespace BurgerFnatics.Controllers
         }
 
         // GET: Reviews/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
