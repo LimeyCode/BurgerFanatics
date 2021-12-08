@@ -24,9 +24,9 @@ namespace BurgerFnatics.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<MenuGroup>().HasOne(m => m.Menu).WithOne().OnDelete(DeleteBehavior.ClientCascade);
-            modelBuilder.Entity<MenuItem>().HasOne(m => m.Menu).WithOne().OnDelete(DeleteBehavior.ClientCascade);
-            modelBuilder.Entity<MenuItem>().HasOne(m => m.MenuGroup).WithOne().OnDelete(DeleteBehavior.ClientCascade);
+            modelBuilder.Entity<MenuGroup>().HasOne(m => m.Menu).WithMany().OnDelete(DeleteBehavior.ClientCascade);
+            modelBuilder.Entity<MenuItem>().HasOne(m => m.Menu).WithMany().OnDelete(DeleteBehavior.ClientCascade);
+            modelBuilder.Entity<MenuItem>().HasOne(m => m.MenuGroup).WithMany().OnDelete(DeleteBehavior.ClientCascade);
 
             base.OnModelCreating(modelBuilder);
         }

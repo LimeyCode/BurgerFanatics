@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BurgerFnatics.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211208061056_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20211208073751_SecondMigration")]
+    partial class SecondMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

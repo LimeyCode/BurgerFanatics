@@ -68,7 +68,7 @@ namespace BurgerFnatics.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["MenuID"] = new SelectList(_context.Menu, "MenuID", "MenuID", menuItem.MenuID);
-            ViewData["MenuGroupID"] = new SelectList(_context.MenuGroup, "MenuGroupID", "MenuGroupName", menuItem.MenuGroupID);
+            ViewData["MenuGroupID"] = new SelectList(_context.MenuGroup, "MenuGroupID", "MenuGroupID", menuItem.MenuGroupID);
             return View(menuItem);
         }
 
